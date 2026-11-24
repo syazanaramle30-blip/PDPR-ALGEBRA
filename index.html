@@ -865,30 +865,37 @@
     }
 
     function formatAlgebraSpeech(text) {
-      return text
-        .replace(/×/g, " darab ")
-        .replace(/÷/g, " bahagi ")
-        .replace(/=/g, " sama dengan ")
-        .replace(/\+/g, " tambah ")
-        .replace(/(\d+)m\b/g, "$1 em")
-        .replace(/\bm\b/g, "em")
-        .replace(/(\d+)n\b/g, "$1 en")
-        .replace(/\bn\b/g, "en")
-        .replace(/(\d+)p²/g, "$1 pi kuasa dua")
-        .replace(/(\d+)p\b/g, "$1 pi")
-        .replace(/\bp\b/g, "pi")
-        .replace(/(\d+)x²/g, "$1 eks kuasa dua")
-        .replace(/x²/g, "eks kuasa dua")
-        .replace(/(\d+)x\b/g, "$1 eks")
-        .replace(/\bx\b/g, "eks")
-        .replace(/(\d+)y\b/g, "$1 wai")
-        .replace(/\by\b/g, "wai")
-        .replace(/(\d+)a\b/g, "$1 ei")
-        .replace(/\ba\b/g, "ei")
-        .replace(/\s+/g, " ")
-        .trim();
-    }
-
+  return text
+    .replace(/×/g, " darab ")
+    .replace(/÷/g, " bahagi ")
+    .replace(/=/g, " sama dengan ")
+    .replace(/\+/g, " tambah ")
+    .replace(/(\d+)mn\b/gi, "$1 em ehn")
+    .replace(/\bmn\b/gi, "em ehn")
+    .replace(/(\d+)xy\b/gi, "$1 eks wai")
+    .replace(/\xy\b/gi, "eks wai")
+    .replace(/(\d+)m²/gi, "$1 em kuasa dua")
+    .replace(/\bm²\b/gi, "em kuasa dua")
+    .replace(/(\d+)m\b/gi, "$1 em")
+    .replace(/\bm\b/gi, "em")
+    .replace(/(\d+)n²/gi, "$1 ehn kuasa dua")
+    .replace(/\bn²\b/gi, "ehn kuasa dua")
+    .replace(/(\d+)n\b/gi, "$1 ehn")
+    .replace(/\bn\b/gi, "ehn")
+    .replace(/(\d+)p²/gi, "$1 pi kuasa dua")
+    .replace(/(\d+)p\b/gi, "$1 pi")
+    .replace(/\bp\b/gi, "pi")
+    .replace(/(\d+)x²/gi, "$1 eks kuasa dua")
+    .replace(/x²/gi, "eks kuasa dua")
+    .replace(/(\d+)x\b/gi, "$1 eks")
+    .replace(/\bx\b/gi, "eks")
+    .replace(/(\d+)y\b/gi, "$1 wai")
+    .replace(/\by\b/gi, "wai")
+    .replace(/(\d+)a\b/gi, "$1 ei")
+    .replace(/\ba\b/gi, "ei")
+    .replace(/\s+/g, " ")
+    .trim();
+}
     function speakText(rawText) {
       if (!voiceEnabled || !("speechSynthesis" in window)) return;
       window.speechSynthesis.cancel();
